@@ -1,0 +1,39 @@
+.commands {
+    margin: 0 -5px;
+
+    .commands-group {
+        display: inline-block;
+        padding: 0 5px;
+
+        button {
+            background-color:   #282C34;
+            color:              #ABB2BF;
+
+            border:             1px solid white;
+            border-right:       0;
+            outline:            none;
+
+            width:              30px;
+            height:             30px;
+
+            cursor:             pointer;
+
+            &:first-child {
+                border-top-left-radius:     3px;
+                border-bottom-left-radius:  3px;
+            }
+
+            &:last-child {
+                border-top-right-radius:    3px;
+                border-bottom-right-radius: 3px;
+
+                border-right:               1px solid white;
+            }
+
+            &:active {
+                background-color: #50555F;
+            }
+        }
+    }
+
+}
