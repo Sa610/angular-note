@@ -1,1 +1,3 @@
-<textarea #textarea (mouseup)="changedPointerPosition($event)" (keyup)="changedPointerPosition($event)"></textarea>
+<textarea #editorTextBox [(ngModel)]="editorService.rawText"
+    (keydown)="onKeyDown($event)">
+</textarea>

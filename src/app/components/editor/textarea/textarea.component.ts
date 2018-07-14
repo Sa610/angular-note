@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
+import { EditorService }    from '../../../services/editor.service';
+
+import { Commands }         from '../../../enums/commands.enum';
+
 @Component({
     selector:       'editor-textarea',
     templateUrl:    './textarea.component.html',
@@ -7,23 +11,20 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 
 export class TextareaComponent implements OnInit {
-    // @ViewChild('textarea') textarea: ElementRef;
-    pointerPosition: int;
+    @ViewChild('editorTextBox') editorTextBox: ElementRef;
 
-    constructor() {
-        // this.textarea.nativeComponent.height = window.innerHeight;
-        // window.innerHeight;
-    }
+    public commands = Commands;
+
+    constructor(private editorService: EditorService) { }
 
     ngOnInit() {
-        // console.log(this.textarea.nativeElement);
-        // window.test = this.textarea.nativeElement;
-
-        // this.textarea.nativeElement.style.height = (window.innerHeight - 45) + "px";
+        this.editorService.setTextBoxReference(this.editorTextBox.nativeElement);
     }
 
-    changedPointerPosition(event) {
-        window.test = event.target;
-        console.log(event.target.selectionStart);
+    onKeyDown(event) {
+        if(event.code == 'Tab') {
+            event.preventDefault();
+            this.editorService.command(this.commands.Tab);
+        }
     }
 }
