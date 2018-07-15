@@ -13,7 +13,7 @@ import { Commands }         from '../../../enums/commands.enum';
 export class CommandsComponent implements OnInit {
     public commands = Commands;
 
-    constructor(private editorService: EditorService) { }
+    constructor(protected editorService: EditorService) { }
 
     ngOnInit() { }
 

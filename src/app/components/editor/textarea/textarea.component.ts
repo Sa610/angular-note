@@ -15,10 +15,14 @@ export class TextareaComponent implements OnInit {
 
     public commands = Commands;
 
-    constructor(private editorService: EditorService) { }
+    constructor(protected editorService: EditorService) { }
 
     ngOnInit() {
         this.editorService.setTextBoxReference(this.editorTextBox.nativeElement);
+
+        setInterval(() => {
+            this.editorService.textUpdate();
+        }, 300);
     }
 
     onKeyDown(event) {

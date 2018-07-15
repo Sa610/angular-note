@@ -11,7 +11,7 @@ import { EditorService }    from '../../../services/editor.service';
 export class PreviewComponent implements OnInit {
     @ViewChild('previewBox') previewBox: ElementRef;
 
-    constructor(private editorService: EditorService) { }
+    constructor(protected editorService: EditorService) { }
 
     ngOnInit() {
         this.editorService.setPreviewBoxReference(this.previewBox.nativeElement);

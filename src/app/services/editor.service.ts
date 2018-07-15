@@ -1,14 +1,15 @@
-import { Injectable, ElementRef } from '@angular/core';
+import { Injectable, ElementRef }   from '@angular/core';
 
-import { Commands } from '../enums/commands.enum';
+import { Commands }                 from '../enums/commands.enum';
+import { Note }                     from '../models/note.model';
 
-import { Converter } from 'showdown';
+import { Converter }                from 'showdown';
 
 // @Injectable()
 @Injectable({ providedIn: 'root'})
 
 export class EditorService {
-    public  rawText:            string                  = 'Ciao ami mio che mi dici?';
+    public  rawText:            string                  = '';
 
     private textBox:            HTMLTextAreaElement;
     private previewBox:         HTMLDivElement;
@@ -20,6 +21,8 @@ export class EditorService {
     private selectionStart:     number                  = 0;
     private selectionEnd:       number                  = 0;
 
+    private currentNote:        Note;
+
     constructor() { }
 
     public update(): void {
@@ -29,15 +32,27 @@ export class EditorService {
     public setTextBoxReference(textBox: HTMLTextAreaElement): void {
         this.textBox = textBox;
     }
+
     public setPreviewBoxReference(previewBox: HTMLDivElement): void {
         this.previewBox = previewBox;
+    }
+
+    public setNote(note: Note): void {
+        this.currentNote    = note;
+        this.rawText        = this.currentNote.text;
+    }
+
+    public textUpdate(): void {
+        if(this.currentNote != null){
+            this.currentNote.setText(this.rawText);
+        }
     }
 
     public command(commandType: Commands): void {
         var offset: number = 0;
 
         this.update();
-
+        
         switch(commandType){
             case Commands.Header_1: case Commands.Header_2: case Commands.Header_3: {
                 offset = this.addHeader(commandType);
@@ -67,8 +82,12 @@ export class EditorService {
                 offset = this.addTab();
                 break;
             }
+            case Commands.Undo: {
+                this.undo();
+                break;
+            }
             case Commands.HTML: {
-                this.showHTMLPreview();
+                this.toggleHTMLPreview();
                 break;
             }
         }
@@ -130,10 +149,23 @@ export class EditorService {
         return 7;
     }
 
-    private showHTMLPreview(): void {
-        let html: string = (new Converter()).makeHtml(this.rawText);
+    private undo(): void {
+        debugger;
+        this.rawText = this.currentNote.undoLastChange();
+    }
 
-        this.previewBox.innerHTML = html;
+    private toggleHTMLPreview(): void {
+        let html: string;
+
+        this.htmlPreview = !this.htmlPreview;
+
+        if(this.htmlPreview) {
+            html = (new Converter()).makeHtml(this.rawText);
+            this.previewBox.innerHTML = html;
+        }
+
+        this.previewBox.style.display   = this.htmlPreview ? 'block' : 'none';
+        this.textBox.style.display      = this.htmlPreview ? 'none' : 'block';
     }
 
     private selectedText(): string {

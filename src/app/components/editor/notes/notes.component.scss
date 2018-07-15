@@ -1,0 +1,20 @@
+ul {
+    padding:            0;
+    margin:             0;
+
+    list-style-type:    none;
+    border-right:       1px solid #4E4F50;
+
+    li {
+        padding:    10px;
+        cursor:     pointer;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #4E4F50;
+        }
+
+        &:hover { background-color: #444852; }
+
+        strong, span { display: block; }
+    }
+}

@@ -1,14 +1,19 @@
 textarea {
+    font-family:        'Hind Siliguri', sans-serif;
+    font-size:          15px;
+
+    height: 500px;
+
     background-color:   #282C34;
     color:              #ABB2BF;
 
-    border:             1px solid;
+    border:             0;
     outline:            none;
     resize:             none;
     overflow:           hidden;
 
     width:              100%;
-    padding:            20px;
 
     overflow-y:         auto;
+    cursor:             text;
 }

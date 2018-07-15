@@ -8,6 +8,7 @@ import { EditorComponent }      from './components/editor/editor.component';
 import { CommandsComponent }    from './components/editor/commands/commands.component';
 import { TextareaComponent }    from './components/editor/textarea/textarea.component';
 import { PreviewComponent } from './components/editor/preview/preview.component';
+import { NotesComponent } from './components/editor/notes/notes.component';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { PreviewComponent } from './components/editor/preview/preview.component'
         EditorComponent,
         CommandsComponent,
         TextareaComponent,
-        PreviewComponent
+        PreviewComponent,
+        NotesComponent
     ],
     imports: [
         BrowserModule,

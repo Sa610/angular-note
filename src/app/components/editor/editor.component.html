@@ -1,5 +1,15 @@
-<div id="editor" #wrapper>
-    <editor-commands></editor-commands>
-    <editor-textarea></editor-textarea>
-    <editor-preview></editor-preview>
+<div id="editor" class="editor" #wrapper>
+    <aside class="editor__notes-list">
+        <editor-notes></editor-notes>
+    </aside>
+
+
+    <main class="editor__main">
+        <editor-commands></editor-commands>
+
+        <div class="editor__text">
+            <editor-textarea></editor-textarea>
+            <editor-preview></editor-preview>
+        </div>
+    </main>
 </div>

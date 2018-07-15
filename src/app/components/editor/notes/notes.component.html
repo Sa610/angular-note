@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let note of notes; let i = index;" (click)="selectNote(i)">
+        <strong>{{ note.title }}</strong>
+
+        <span>{{ note.updateAt | date:"y, MMM d" }}</span>
+    </li>
+</ul>

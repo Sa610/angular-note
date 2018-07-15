@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
+import { EditorService }    from '../../services/editor.service';
+
 @Component({
     selector: 'app-editor',
     templateUrl: './editor.component.html',
@@ -8,7 +10,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 export class EditorComponent implements OnInit {
     @ViewChild('wrapper') wrapper: ElementRef;
 
-    constructor() { }
+    constructor(protected editorService: EditorService) { }
     ngOnInit() {
         this.wrapper.nativeElement.style.height = (window.innerHeight) + "px";
     }
