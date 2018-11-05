@@ -1,34 +1,41 @@
 <div class="commands">
-    <div class="commands-group">
+    <div class="commands__group--system">
+        <button (click)=onCommand(commands.Quit)><span style="position: absolute; top: -2px; right: 2px;">×</span></button>
+        <button (click)=onCommand(commands.Minimize)><span style="position: absolute; top: -2px; right: 3px;">–</span></button>
+        <button (click)=onCommand(commands.Resize) disabled></button>
+    </div>
+
+    <div class="commands__group">
         <button (click)="onCommand(commands.Header_1)">H1</button>
         <button (click)="onCommand(commands.Header_2)">H2</button>
         <button (click)="onCommand(commands.Header_3)">H3</button>
     </div>
 
-    <div class="commands-group">
+    <div class="commands__group">
         <button (click)="onCommand(commands.Bold)"><span class="note-bold"></span></button>
         <button (click)="onCommand(commands.Italic)"><span class="note-italic"></span></button>
     </div>
 
-    <!-- <div class="commands-group">
+    <!-- <div class="commands__group">
         <button (click)="onCommand(commands.List_Numeric)"><span class="note-list-numbered"></span></button>
     </div> -->
 
-    <div class="commands-group">
+    <div class="commands__group">
         <button (click)="onCommand(commands.List)"><span class="note-list"></span></button>
         <button (click)="onCommand(commands.Code)"><span class="note-embed"></span></button>
         <button (click)="onCommand(commands.Link)"><span class="note-link"></span></button>
         <!-- <button (click)="onCommand(commands.Image)"><span class="note-image"></span></button> -->
     </div>
 
-    <div class="commands-group">
+    <div class="commands__group">
         <button (click)="onCommand(commands.Undo)"><span class="note-undo2"></span></button>
+        <button (click)="onCommand(commands.Redo)"><span class="note-redo2"></span></button>
         <button (click)="onCommand(commands.Copy)"><span class="note-copy"></span></button>
         <button (click)="onCommand(commands.Cut)"><span class="note-scissors"></span></button>
         <button (click)="onCommand(commands.Paste)"><span class="note-paste"></span></button>
     </div>
 
-    <div class="commands-group">
+    <div class="commands__group">
         <button (click)="onCommand(commands.HTML)" style="width: 100%;">HTML</button>
     </div>
 </div>

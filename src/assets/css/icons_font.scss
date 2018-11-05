@@ -27,32 +27,35 @@
 
 
 .note-list-numbered:before {
-    content: "\e9b9";
+  content: "\e9b9";
 }
 .note-list:before {
-    content: "\e9bb";
+  content: "\e9bb";
 }
 .note-bold:before {
-    content: "\ea62";
+  content: "\ea62";
 }
 .note-italic:before {
-    content: "\ea64";
+  content: "\ea64";
 }
 .note-embed:before {
-    content: "\ea7f";
+  content: "\ea7f";
 }
 .note-copy:before {
-    content: "\e92c";
+  content: "\e92c";
 }
 .note-paste:before {
-    content: "\e92d";
+  content: "\e92d";
 }
 .note-undo2:before {
-    content: "\e967";
+  content: "\e967";
 }
 .note-scissors:before {
-    content: "\ea5a";
+  content: "\ea5a";
 }
 .note-link:before {
-    content: "\e9cb";
+  content: "\e9cb";
+}
+.note-redo2:before {
+  content: "\e968";
 }

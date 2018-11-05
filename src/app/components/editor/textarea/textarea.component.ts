@@ -11,18 +11,24 @@ import { Commands }         from '../../../enums/commands.enum';
 })
 
 export class TextareaComponent implements OnInit {
-    @ViewChild('editorTextBox') editorTextBox: ElementRef;
+    @ViewChild('editorTextBox') textBox: ElementRef;
 
     public commands = Commands;
+
+    private noteChanged: boolean = false;
 
     constructor(protected editorService: EditorService) { }
 
     ngOnInit() {
-        this.editorService.setTextBoxReference(this.editorTextBox.nativeElement);
+        this.editorService.setTextareaComponent(this);
 
         setInterval(() => {
             this.editorService.textUpdate();
         }, 300);
+    }
+
+    public getTextBox(): HTMLTextAreaElement {
+        return <HTMLTextAreaElement> this.textBox.nativeElement;
     }
 
     onKeyDown(event) {

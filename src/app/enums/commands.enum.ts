@@ -12,7 +12,11 @@ export enum Commands {
     Tab,
     Paste,
     Undo,
+    Redo,
     Copy,
     Cut,
+    Quit,
+    Minimize,
+    Resize,
     HTML
 }

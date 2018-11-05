@@ -1,15 +1,18 @@
-<div id="editor" class="editor" #wrapper>
-    <aside class="editor__notes-list">
-        <editor-notes></editor-notes>
-    </aside>
-
-
-    <main class="editor__main">
+<div id="editor" class="editor">
+    <header>
         <editor-commands></editor-commands>
+    </header>
 
-        <div class="editor__text">
-            <editor-textarea></editor-textarea>
-            <editor-preview></editor-preview>
-        </div>
-    </main>
+    <div style="display: flex; width: 100%;">
+        <aside class="editor__notes-list">
+            <editor-notes></editor-notes>
+        </aside>
+
+        <main class="editor__main">
+            <div class="editor__text">
+                <editor-textarea></editor-textarea>
+                <editor-preview></editor-preview>
+            </div>
+        </main>
+    </div>
 </div>

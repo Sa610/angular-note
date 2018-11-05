@@ -1,7 +1,13 @@
 .commands {
-    margin: 0 -5px;
+    margin:     0 -5px;
+    padding:    7px;
 
-    .commands-group {
+    -webkit-user-select:    none;
+    -webkit-app-region:     drag;
+
+    button { outline: none; }
+
+    &__group {
         display: inline-block;
         padding: 0 5px;
 
@@ -9,9 +15,8 @@
             background-color:   #282C34;
             color:              #ABB2BF;
 
-            border:             1px solid white;
+            border:             1px solid #A7A7A7;
             border-right:       0;
-            outline:            none;
 
             width:              30px;
             height:             30px;
@@ -27,13 +32,55 @@
                 border-top-right-radius:    3px;
                 border-bottom-right-radius: 3px;
 
-                border-right:               1px solid white;
+                border-right:               1px solid #A7A7A7;
             }
 
             &:active {
                 background-color: #50555F;
             }
         }
-    }
 
+        &--system {
+            display: inline;
+            padding: 0 10px;
+
+            button {
+                border-radius:  80%;
+
+                width:          13px;
+                height:         13px;
+                position:       relative;
+
+                padding:        0;
+                margin:         0 4px;
+
+                span { visibility: hidden; }
+            }
+
+            button:nth-child(1) {
+                background-color: red; border: 1px solid red;
+
+                &:active { background-color: #C30000; border-color: #C30000; }
+            }
+
+            button:nth-child(2) {
+                background-color: #FFD400; border: 1px solid #FFD400;
+
+                &:active { background-color: #D6B200; border: 1px solid #D6B200; }
+            }
+
+            button:nth-child(3) { background-color: #51C707; border: 1px solid #51c707; }
+
+            button:nth-child(1):disabled, button:nth-child(2):disabled, button:nth-child(3):disabled {
+                background-color:   #DCDCDC;
+                border-color:       #DCDCDC;
+            }
+
+            &:hover{
+                button span {
+                    visibility: visible !important;
+                }
+            }
+        }
+    }
 }
